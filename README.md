@@ -9,7 +9,7 @@ CNN-based global localization project for ROS2 Humble using PyTorch to train mod
 
 ## Overview
 
-![Animation](./images/localization_process.gif)
+![Animation](./images/localization.gif)
 
 This project implements a deep learning approach to the **global localization** problem in robotics. Instead of using traditional particle filter methods like AMCL (Adaptive Monte Carlo Localization), we train a convolutional neural network (CNN) to directly regress the robot's pose (x, y, yaw) from a 2D occupancy grid map and a LiDAR scan.
 

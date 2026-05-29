@@ -1,6 +1,6 @@
 # Map-based-Global-Localization-Using-LiDAR-and-Deep-Neural-Network
 
-CNN-based global localization node for ROS2 Humble using ONNX Runtime. Localizes robot by matching LiDAR scans with occupancy grid maps.
+CNN-based global localization node for ROS2 Humble using ONNX Runtime. Robot global localization by matching LiDAR scans with occupancy grid maps.
 
 ## Description
 

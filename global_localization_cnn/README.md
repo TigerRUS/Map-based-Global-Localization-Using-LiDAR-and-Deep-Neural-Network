@@ -16,7 +16,15 @@ This package provides a ROS2 node that performs global localization using a conv
 - tf2, tf2_ros, tf2_geometry_msgs
 
 ### External
-- **ONNX Runtime**
+- **ONNX Runtime** [ONNX Runtime installation](https://onnxruntime.ai/docs/install/)
+
+## Installation
+```bash
+# Build ROS2 packages
+cd ~/ros2_ws
+colcon build --packages-select global_localization_cnn
+source install/setup.bash
+```
 
 ## Configuration
 Parameters file config/global_localization_params.yaml

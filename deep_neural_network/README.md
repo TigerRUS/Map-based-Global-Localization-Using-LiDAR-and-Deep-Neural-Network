@@ -1,3 +1,3 @@
-Deen Neural Network
+# Deep Neural Network
 
-[description]
+Training and conversion scripts for the CNN-based global localization model.

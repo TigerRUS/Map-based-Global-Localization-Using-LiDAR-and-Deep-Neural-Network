@@ -1,0 +1,14 @@
+/**:
+  ros__parameters:
+    # Model configuration
+    model_path: "localization_model.onnx"
+    confidence_threshold: 0.5
+    
+    # Topics
+    map_topic: "/map"
+    scan_topic: "/scan"
+    initial_pose_topic: "/initialpose"
+    
+    # Processing
+    inference_rate: 10.0  # Hz
+    use_sim_time: false

@@ -28,7 +28,7 @@ The key idea is to treat localization as an image-to-pose regression problem:
 
 - **Ubuntu 22.04** with **ROS2 Humble**
 - **Python 3.10+**
-- **CUDA-capable GPU** (optional, but recommended for training)
+- **CUDA-capable GPU** (optional, but recommended)
 
 ## Installation
 Install PyTorch [PyTorch Installation](https://pytorch.org/get-started/locally/)

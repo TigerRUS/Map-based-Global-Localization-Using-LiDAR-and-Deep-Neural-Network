@@ -1,4 +1,4 @@
-Global Localization CNN
+# Global Localization CNN
 
 CNN-based global localization node for ROS2 Humble using ONNX Runtime. Robot global localization by matching LiDAR scans with occupancy grid maps.
 

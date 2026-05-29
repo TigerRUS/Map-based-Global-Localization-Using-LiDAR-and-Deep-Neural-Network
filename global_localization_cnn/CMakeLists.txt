@@ -14,7 +14,6 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
-# Find ONNX Runtime
 find_path(ONNXRUNTIME_INCLUDE_DIR onnxruntime_cxx_api.h
   HINTS /usr/include/onnxruntime
         /usr/local/include/onnxruntime)
@@ -53,8 +52,16 @@ target_link_libraries(global_localization_node
 install(TARGETS data_processor global_localization_node
   DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY include/
-  DESTINATION include)
+  DESTINATION include/${PROJECT_NAME})
+
 install(DIRECTORY config/
   DESTINATION share/${PROJECT_NAME}/config)
+
+install(FILES
+  models/localization_model.onnx
+  DESTINATION share/${PROJECT_NAME}/models)
+
+install(DIRECTORY launch/
+  DESTINATION share/${PROJECT_NAME}/launch)
 
 ament_package()

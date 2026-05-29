@@ -5,7 +5,7 @@ CNN-based global localization project for ROS2 Humble using PyTorch to train mod
 [![ROS2 Humble](https://img.shields.io/badge/ROS2-Humble-blue)](https://docs.ros.org/en/humble/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange)](https://pytorch.org/)
 [![ONNX Runtime](https://img.shields.io/badge/ONNX_Runtime-1.15+-white)](https://onnxruntime.ai/)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-purple)](LICENSE)
 
 ## Overview
 

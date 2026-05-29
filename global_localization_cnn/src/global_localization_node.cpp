@@ -161,7 +161,7 @@ void GlobalLocalizationNode::publishPose(const std::vector<float> & output)
                 output[0], output[1], std::atan2(output[2], output[3]) * 180.0 / M_PI);
 }
 
-} // namespace global_localization_cnn
+}
 
 #include <rclcpp_components/register_node_macro.hpp>
 RCLCPP_COMPONENTS_REGISTER_NODE(global_localization_cnn::GlobalLocalizationNode)

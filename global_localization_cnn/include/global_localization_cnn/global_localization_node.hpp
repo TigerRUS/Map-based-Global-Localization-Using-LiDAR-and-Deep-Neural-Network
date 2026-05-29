@@ -55,6 +55,6 @@ private:
     bool model_loaded_;
 };
 
-} // namespace global_localization_cnn
+}
 
-#endif // GLOBAL_LOCALIZATION_NODE_HPP
+#endif

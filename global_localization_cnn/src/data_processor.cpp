@@ -74,4 +74,4 @@ std::vector<float> DataProcessor::processScan(
     return scan_map;
 }
 
-} // namespace global_localization_cnn
+}

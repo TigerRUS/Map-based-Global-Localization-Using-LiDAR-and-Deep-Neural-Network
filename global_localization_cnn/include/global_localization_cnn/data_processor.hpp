@@ -29,6 +29,6 @@ private:
     nav_msgs::msg::MapMetaData map_info_;
 };
 
-} // namespace global_localization_cnn
+}
 
-#endif // DATA_PROCESSOR_HPP
+#endif

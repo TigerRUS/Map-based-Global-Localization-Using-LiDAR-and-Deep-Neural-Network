@@ -3,9 +3,9 @@
 CNN-based global localization project for ROS2 Humble using PyTorch to train model and ONNX Runtime to inference.
 
 [![ROS2 Humble](https://img.shields.io/badge/ROS2-Humble-blue)](https://docs.ros.org/en/humble/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red)](https://pytorch.org/)
-[![ONNX Runtime](https://img.shields.io/badge/ONNX_Runtime-1.15+-orange)](https://onnxruntime.ai/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange)](https://pytorch.org/)
+[![ONNX Runtime](https://img.shields.io/badge/ONNX_Runtime-1.15+-white)](https://onnxruntime.ai/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue)](LICENSE)
 
 ## Overview
 
@@ -31,13 +31,11 @@ The key idea is to treat localization as an image-to-pose regression problem:
 - **CUDA-capable GPU** (optional, but recommended for training)
 
 ### Installation
-
 [PyTorch Installation](https://pytorch.org/get-started/locally/)
-
 ```bash
 # Clone the repository
 cd ~/ros2_ws/src
-git clone https://github.com/yourusername/Map-based-Global-Localization-Using-LiDAR-and-Deep-Neural-Network.git
+git clone https://github.com/TigerRUS/Map-based-Global-Localization-Using-LiDAR-and-Deep-Neural-Network.git
 
 # Install Python dependencies
 pip install onnxruntime onnx numpy matplotlib scikit-learn tqdm

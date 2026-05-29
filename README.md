@@ -3,11 +3,13 @@
 CNN-based global localization project for ROS2 Humble using PyTorch to train model and ONNX Runtime to inference.
 
 [![ROS2 Humble](https://img.shields.io/badge/ROS2-Humble-blue)](https://docs.ros.org/en/humble/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange)](https://pytorch.org/)
-[![ONNX Runtime](https://img.shields.io/badge/ONNX_Runtime-1.15+-white)](https://onnxruntime.ai/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.12.0+-orange)](https://pytorch.org/)
+[![ONNX Runtime](https://img.shields.io/badge/ONNX_Runtime-1.19+-white)](https://onnxruntime.ai/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-purple)](LICENSE)
 
 ## Overview
+
+![Animation](./images/localization_process.gif)
 
 This project implements a deep learning approach to the **global localization** problem in robotics. Instead of using traditional particle filter methods like AMCL (Adaptive Monte Carlo Localization), we train a convolutional neural network (CNN) to directly regress the robot's pose (x, y, yaw) from a 2D occupancy grid map and a LiDAR scan.
 
@@ -22,16 +24,14 @@ The key idea is to treat localization as an image-to-pose regression problem:
 - **Robust to symmetries**: CNN learns to disambiguate similar-looking areas
 - **End-to-end learning**: No need for manually tuned sensor models
 
-## 🚀 Quick Start
-
-### Prerequisites
+## Prerequisites
 
 - **Ubuntu 22.04** with **ROS2 Humble**
 - **Python 3.10+**
 - **CUDA-capable GPU** (optional, but recommended for training)
 
-### Installation
-[PyTorch Installation](https://pytorch.org/get-started/locally/)
+## Installation
+Install PyTorch [PyTorch Installation](https://pytorch.org/get-started/locally/)
 ```bash
 # Clone the repository
 cd ~/ros2_ws/src

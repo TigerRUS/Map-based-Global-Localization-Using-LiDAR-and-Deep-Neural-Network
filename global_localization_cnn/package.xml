@@ -6,7 +6,7 @@
   <description>
     Global localization using CNN with ONNX Runtime for ROS2 Humble
   </description>
-  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <maintainer email="machine01code@gmail.com">TigerRUS</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

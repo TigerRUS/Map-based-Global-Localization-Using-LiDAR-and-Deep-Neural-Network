@@ -142,7 +142,6 @@ class DatasetCollector(Node):
             self.get_logger().error(f'Transform error: {e}')
             return None
         
-        # Map parameters
         origin_x = self.map_info.origin.position.x
         origin_y = self.map_info.origin.position.y
         resolution = self.map_info.resolution
@@ -151,7 +150,6 @@ class DatasetCollector(Node):
         
         scan_map = np.zeros((height, width), dtype=np.uint8)
         
-        # Process each laser scan beam
         angle_min = self.scan_data.angle_min
         angle_inc = self.scan_data.angle_increment
         points_drawn = 0
@@ -159,7 +157,6 @@ class DatasetCollector(Node):
         transform_fails = 0
         
         for i, r in enumerate(self.scan_data.ranges):
-            # Check measurement validity
             if r < self.scan_data.range_min or r > self.scan_data.range_max:
                 invalid_count += 1
                 continue
@@ -168,12 +165,10 @@ class DatasetCollector(Node):
                 invalid_count += 1
                 continue
             
-            # Calculate point coordinates in scan frame
             angle = angle_min + i * angle_inc
             px = r * math.cos(angle)
             py = r * math.sin(angle)
             
-            # Transform point to map coordinate system
             try:
                 point_laser = PointStamped()
                 point_laser.header.frame_id = self.scan_data.header.frame_id
@@ -193,13 +188,11 @@ class DatasetCollector(Node):
                 transform_fails += 1
                 continue
             
-            # Convert to map pixel coordinates
             u = int((px_map - origin_x) / resolution)
             v = int((py_map - origin_y) / resolution)
             
-            # Mark point on map if within bounds
             if 0 <= u < width and 0 <= v < height:
-                scan_map[v, u] = 1  # Occupied cell
+                scan_map[v, u] = 1
                 points_drawn += 1
         
         self.get_logger().info(f'Points drawn: {points_drawn}, Invalid: {invalid_count}, Transform fails: {transform_fails}, Total: {len(self.scan_data.ranges)}')
@@ -298,7 +291,6 @@ class DatasetCollector(Node):
         
         self.get_logger().info(f'Scan saved to {scan_file}')
         
-        # Save pose as a single line with space-separated values
         pose_file = os.path.join(output_dir, 'pose.txt')
         with open(pose_file, 'w') as f:
             f.write(f"{pose[0]:.6f} {pose[1]:.6f} {pose[2]:.6f} {pose[3]:.6f}")
@@ -310,20 +302,16 @@ class DatasetCollector(Node):
     def capture_data(self):
         self.get_logger().info('Capturing data...')
         
-        # Step 1: Save current robot pose
         pose = self.process_odom()
         if pose is None:
             return
         
-        # Step 2: Reset position to origin
         self.get_logger().info('Resetting position...')
         self.reset_position()
         
-        # Step 3: Wait for new data after reset
         self.get_logger().info('Waiting for updated data...')
         time.sleep(2.0)
         
-        # Step 4: Transform scan to map coordinates
         self.get_logger().info('Transforming scan to map coordinates...')
         scan_matrix = self.transform_scan_to_map()
         if scan_matrix is None:
@@ -332,14 +320,12 @@ class DatasetCollector(Node):
         
         self.get_logger().info(f'Scan matrix shape: {scan_matrix.shape}')
         
-        # Step 5: Process map
         map_matrix, map_metadata = self.process_map()
         if map_matrix is None:
             return
         
         self.get_logger().info(f'Map processed: {map_matrix.shape}')
         
-        # Step 6: Save everything
         if self.save_dataset(map_matrix, scan_matrix, pose):
             self.dataset_index += 1
             self.get_logger().info(f'Ready for next capture (index: {self.dataset_index})')
@@ -350,13 +336,11 @@ def main(args=None):
     collector = DatasetCollector()
     
     try:
-        # Spin in a separate thread
         from threading import Thread
         spin_thread = Thread(target=rclpy.spin, args=(collector,))
         spin_thread.daemon = True
         spin_thread.start()
         
-        # Main loop waiting for Enter key
         print("\n" + "="*50)
         print("Dataset Collector for Neural Network")
         print("="*50)
@@ -367,7 +351,7 @@ def main(args=None):
         
         while rclpy.ok():
             try:
-                input()  # Wait for Enter key
+                input()
                 collector.capture_data()
             except EOFError:
                 break

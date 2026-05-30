@@ -46,4 +46,4 @@ dataset/
 - **Angle Error**: Angular difference in degrees (handles circular wrap-around)
 - **Sin/Cos Norm**: Regularization constraint (should approach 1.0)
 
-![CNN](../images/metrics.png)
+![CNN](../images/training_metrics.png)

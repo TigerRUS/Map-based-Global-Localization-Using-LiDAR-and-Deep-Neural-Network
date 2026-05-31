@@ -16,7 +16,7 @@ This package provides a ROS2 node that performs global localization using a conv
 - tf2, tf2_ros, tf2_geometry_msgs
 
 ### External
-- **ONNX Runtime** [ONNX Runtime installation](https://onnxruntime.ai/docs/install/)
+- **ONNX Runtime**
 
 ## Installation
 ```bash

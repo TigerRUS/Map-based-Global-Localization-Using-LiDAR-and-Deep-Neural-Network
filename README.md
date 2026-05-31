@@ -32,7 +32,7 @@ The key idea is to treat localization as an image-to-pose regression problem:
 
 ## Installation
 - **Install PyTorch** [PyTorch Installation](https://pytorch.org/get-started/locally/)
-- **ONNX Runtime** [ONNX Runtime installation](https://onnxruntime.ai/docs/install/)
+- **Install ONNX Runtime** [ONNX Runtime installation](https://onnxruntime.ai/docs/install/)
 ```bash
 # Clone the repository
 cd ~/ros2_ws/src
